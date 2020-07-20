@@ -1,0 +1,27 @@
+<h3>Hi I am in products component</h3>
+<p>Seems to work fine</p>
+<p>Let us play with some products</p>
+<br/>
+
+<div>
+    <h2>Product Information:</h2>
+    <p>Enter your product name--></p>
+    <!-- <input type="text" [(ngModel)] = "productName"/>
+    
+    <button (click) = "addProduct()" [disabled] = "isDisabled" >Add Product</button>
+    <button (click) = "isDisabled = true" >Done adding</button>
+    <div>{{productName}}</div> -->
+
+    <form (ngSubmit) = "addProduct(form)" #form = "ngForm">
+        <input type="text" ngModel name="productName" required/>    
+        <button type="submit">Add Product</button>
+
+    </form>
+
+
+    <br/>
+    <h3>Your saved Products---></h3>
+    
+    <app-view-component (productBoxClicked) = "onRemoveProduct(product)" *ngFor = "let product of productList" [product] = "product" > </app-view-component>
+
+</div>
